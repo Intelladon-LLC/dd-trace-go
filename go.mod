@@ -217,3 +217,5 @@ require (
 	mellium.im/sasl v0.2.1 // indirect
 	sigs.k8s.io/yaml v1.1.0 // indirect
 )
+
+replace gopkg.in/DataDog/dd-trace-go.v1 v1.41.0 => github.com/Intelladon-LLC/dd-trace-go v1.41.0
