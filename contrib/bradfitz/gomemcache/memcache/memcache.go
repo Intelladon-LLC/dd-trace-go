@@ -151,6 +151,14 @@ func (c *Client) Increment(key string, delta uint64) (newValue uint64, err error
 	return newValue, err
 }
 
+// Ping invokes and traces Client.Ping.
+func (c *Client) Ping() error {
+	span := c.startSpan("Ping")
+	err := c.Client.Ping()
+	span.Finish(tracer.WithError(err))
+	return err
+}
+
 // Replace invokes and traces Client.Replace.
 func (c *Client) Replace(item *memcache.Item) error {
 	span := c.startSpan("Replace")
